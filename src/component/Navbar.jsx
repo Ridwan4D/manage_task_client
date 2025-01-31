@@ -1,18 +1,42 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <Link to="/bookMarks">Book Marks</Link>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "bg-black/20" : "text-white"
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <Link to="/myTasks">My Tasks</Link>
+        <NavLink
+          to="/bookMarks"
+          className={({ isActive }) =>
+            isActive ? "bg-black/20" : "text-white"
+          }
+        >
+          Book Marks
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/myTasks"
+          className={({ isActive }) =>
+            isActive ? "bg-black/20" : "text-white"
+          }
+        >
+          My Tasks
+        </NavLink>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-[#0077b6]">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,10 +62,18 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">
+          <img
+            src="https://res.cloudinary.com/duv5fiurz/image/upload/v1738328662/siteLogo_ttlrhg.png"
+            alt="site logo"
+            className="h-10 w-16"
+          />
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className="menu menu-horizontal px-1 text-white font-medium lg:text-lg">
+          {navLinks}
+        </ul>
       </div>
       <div className="navbar-end">
         <Link to="/login" className="btn">
